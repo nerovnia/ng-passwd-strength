@@ -1,0 +1,11 @@
+.passwd-indicator {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  height: 5px;
+  border: solid 1px #000000;
+  background-color: rgba(240, 240, 12, 0.973);
+  margin-top: 5px;
+  margin-bottom: 5px;
+
+}
