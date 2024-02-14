@@ -1,4 +1,7 @@
 <div>
   <input type="text" class="inputPasswd" (keyup)="onKey($event)">
-  <app-passwd-indicator class="passwd-indicator"></app-passwd-indicator>
+  <app-passwd-indicator 
+    class="passwd-indicator"
+    [checkStrengthProperty]="checkStrengthProperty"
+    ></app-passwd-indicator>
 </div>

@@ -1,13 +1,6 @@
 import { Component } from '@angular/core';
 import { PasswdIndicatorComponent } from '../passwd-indicator/passwd-indicator.component';
-
-enum PasswordStrength {
-  Empty = 1,
-  Less,
-  Easy,
-  Medium,
-  Strong,
-}
+import { EPasswordStrength } from '../epassword-strength';
 
 @Component({
   selector: 'app-passwd-field',
@@ -17,9 +10,10 @@ enum PasswordStrength {
   styleUrl: './passwd-field.component.scss'
 })
 export class PasswdFieldComponent {
+  checkStrengthProperty = EPasswordStrength.Empty;
 
   onKey(event: KeyboardEvent) {
-    console.log(this.checkStrength((event?.target as HTMLInputElement)?.value));
+    this.checkStrengthProperty = this.checkStrength((event?.target as HTMLInputElement)?.value);
   }
   
   checkStrength(password: string) {
@@ -27,8 +21,8 @@ export class PasswdFieldComponent {
     let hasDigits = false;
     let hasSymbols = false;
 
-    if ((password.length === 0) || (typeof password !== 'string')) return PasswordStrength.Empty;
-    if (password.length < 8) return PasswordStrength.Less;
+    if ((password.length === 0) || (typeof password !== 'string')) return EPasswordStrength.Empty;
+    if (password.length < 8) return EPasswordStrength.Less;
 
     for (const ch of password.split('')) {
       let isSelectCat = false;
@@ -51,15 +45,15 @@ export class PasswdFieldComponent {
     if ((hasLetters && !hasDigits && !hasSymbols)
     || (!hasLetters && hasDigits && !hasSymbols)
     || (!hasLetters && !hasDigits && hasSymbols)) {
-      return PasswordStrength.Easy;
+      return EPasswordStrength.Easy;
     }
 
     if ((hasLetters && !hasDigits && hasSymbols)
     || (hasLetters && hasDigits && !hasSymbols)
     || (!hasLetters && hasDigits && hasSymbols)) {
-      return PasswordStrength.Medium;
+      return EPasswordStrength.Medium;
     }
-    return PasswordStrength.Strong; 
+    return EPasswordStrength.Strong; 
   }
 
 }
