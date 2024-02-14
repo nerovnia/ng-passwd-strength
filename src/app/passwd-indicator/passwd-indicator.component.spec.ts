@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { PasswdIndicatorComponent } from './passwd-indicator.component';
 
 describe('PasswdIndicatorComponent', () => {

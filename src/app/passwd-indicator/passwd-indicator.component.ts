@@ -1,6 +1,7 @@
 import { Component, Input, OnChanges, SimpleChanges  } from '@angular/core';
 import { PasswdIndicatorLineComponent } from '../passwd-indicator-line/passwd-indicator-line.component';
 import { EPasswordStrength } from '../epassword-strength';
+
 @Component({
   selector: 'app-passwd-indicator',
   standalone: true,
@@ -11,9 +12,16 @@ import { EPasswordStrength } from '../epassword-strength';
 export class PasswdIndicatorComponent  implements OnChanges {
   @Input() checkStrengthProp = EPasswordStrength.Empty;
 
-  firstLineColor = "passwd-indicator-line-comp bottom-border-gray";
-  secondLineColor = "passwd-indicator-line-comp bottom-border-gray";
-  thirdLineColor = "passwd-indicator-line-comp bottom-border-gray";
+  firstLineColor: string;
+  secondLineColor: string;
+  thirdLineColor: string;
+
+  constructor() {
+      this.firstLineColor = "";
+      this.secondLineColor = "";
+      this.thirdLineColor = "";
+      this.setColors("bottom-border-gray", "bottom-border-gray", "bottom-border-gray");
+  }
 
   setColors(firstLineColor: string, secondLineColor: string, thirdLineColor: string) {
     this.firstLineColor = "passwd-indicator-line-comp " + firstLineColor;
