@@ -1,4 +1,4 @@
-.inputPasswd {
+.input-passwd {
   width: 98%;
 }
 
@@ -10,4 +10,11 @@
   height: 5px;
   margin-top: 5px;
   margin-bottom: 5px;
+}
+
+.passwd-input-block input {
+  color: var(--green-700);
+  width: 280px;
+  padding: 10px;
+  border: solid 1px var(--green-700);;
 }
