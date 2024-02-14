@@ -1,2 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
+.center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
