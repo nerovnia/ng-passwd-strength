@@ -20,6 +20,11 @@
     --gray-700: oklch(36.98% 0.014 302.71);
     --gray-400: oklch(70.9% 0.015 304.04);
 
+
+    --red-400: oklch(50% 0.612 56.071);
+    --yellow-400: oklch(90% 1 106.485);
+    --green-400: oklch(50% 0.612 142.876);
+
     --red-to-pink-to-purple-vertical-gradient: linear-gradient(
       180deg,
       var(--orange-red) 0%,
@@ -75,6 +80,7 @@
 
   .content {
     display: flex;
+    flex-direction: column;
     justify-content: space-around;
     align-items: center;
     width: 100%;
@@ -99,22 +105,14 @@
       height: 100%;
     }
 
-    .divider {
-      height: 1px;
-      width: 100%;
-      background: var(--red-to-pink-to-purple-horizontal-gradient);
-      margin-block: 1.5rem;
-    }
   }
 </style>
 
 <main class="main">
   <div class="content">
-    <div>
-      <h1>{{ title }}</h1>
-      <p class="text-center">Check your password simple and fast:</p>
-      <app-passwd-check-form  class="app-passwd-check-form"></app-passwd-check-form>
-    </div>
+    <h1>{{ title }}</h1>
+    <p class="text-center">Check your password simple and fast:</p>
+    <app-passwd-check-form  class="app-passwd-check-form"></app-passwd-check-form>
   </div>
 </main>
 
