@@ -16,38 +16,28 @@ export class PasswdIndicatorComponent  implements OnChanges {
   secondLineColor = "passwd-indicator-line-comp bottom-border-gray";
   thirdLineColor = "passwd-indicator-line-comp bottom-border-gray";
 
-  setColors(firstLine: string, secondLine: string, thirdLine: string) {
-    this.firstLineColor = firstLine;
-    this.secondLineColor = secondLine;
-    this.thirdLineColor = thirdLine;
+  setColors(firstLineColor: string, secondLineColor: string, thirdLineColor: string) {
+    this.firstLineColor = "passwd-indicator-line-comp " + firstLineColor;
+    this.secondLineColor = "passwd-indicator-line-comp " + secondLineColor;
+    this.thirdLineColor = "passwd-indicator-line-comp " + thirdLineColor;
 }
 
   ngOnChanges(changes: SimpleChanges) {
     if(changes['checkStrengthProp']) {
       if(changes['checkStrengthProp'].currentValue === EPasswordStrength.Empty) {
-        this.firstLineColor = "passwd-indicator-line-comp bottom-border-gray";
-        this.secondLineColor = "passwd-indicator-line-comp bottom-border-gray";
-        this.thirdLineColor = "passwd-indicator-line-comp bottom-border-gray";
+        this.setColors("bottom-border-gray", "bottom-border-gray", "bottom-border-gray");
       }
       if(changes['checkStrengthProp'].currentValue === EPasswordStrength.Less) {
-        this.firstLineColor = "passwd-indicator-line-comp bottom-border-red";
-        this.secondLineColor = "passwd-indicator-line-comp bottom-border-red";
-        this.thirdLineColor = "passwd-indicator-line-comp bottom-border-red";
+        this.setColors("bottom-border-red", "bottom-border-red", "bottom-border-red");
       }
       if(changes['checkStrengthProp'].currentValue === EPasswordStrength.Easy) {
-        this.firstLineColor = "passwd-indicator-line-comp bottom-border-red";
-        this.secondLineColor = "passwd-indicator-line-comp bottom-border-gray";
-        this.thirdLineColor = "passwd-indicator-line-comp bottom-border-gray";
+        this.setColors("bottom-border-red", "bottom-border-gray", "bottom-border-gray");
       }
       if(changes['checkStrengthProp'].currentValue === EPasswordStrength.Medium) {
-        this.firstLineColor = "passwd-indicator-line-comp bottom-border-yellow";
-        this.secondLineColor = "passwd-indicator-line-comp bottom-border-yellow";
-        this.thirdLineColor = "passwd-indicator-line-comp bottom-border-gray";
+        this.setColors("bottom-border-yellow", "bottom-border-yellow", "bottom-border-gray");
       }
       if(changes['checkStrengthProp'].currentValue === EPasswordStrength.Strong) {
-        this.firstLineColor = "passwd-indicator-line-comp bottom-border-green";
-        this.secondLineColor = "passwd-indicator-line-comp bottom-border-green";
-        this.thirdLineColor = "passwd-indicator-line-comp bottom-border-green";
+        this.setColors("bottom-border-green", "bottom-border-green", "bottom-border-green");
       }
     }
   }
