@@ -10,10 +10,10 @@ import { EPasswordStrength } from '../epassword-strength';
   styleUrl: './passwd-field.component.scss'
 })
 export class PasswdFieldComponent {
-  checkStrengthProperty = EPasswordStrength.Empty;
+  checkStrengthProp = EPasswordStrength.Empty;
 
   onKey(event: KeyboardEvent) {
-    this.checkStrengthProperty = this.checkStrength((event?.target as HTMLInputElement)?.value);
+    this.checkStrengthProp = this.checkStrength((event?.target as HTMLInputElement)?.value);
   }
   
   checkStrength(password: string) {

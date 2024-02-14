@@ -1,3 +1,12 @@
-<app-passwd-indicator-line id="passwd-indicator-line1" class="passwd-indicator-line-comp bottom-border-gray"></app-passwd-indicator-line>
-<app-passwd-indicator-line id="passwd-indicator-line2" class="passwd-indicator-line-comp bottom-border-gray"></app-passwd-indicator-line>
-<app-passwd-indicator-line id="passwd-indicator-line3" class="passwd-indicator-line-comp bottom-border-gray"></app-passwd-indicator-line>
+<app-passwd-indicator-line 
+  id="passwd-indicator-line1" 
+  [class]="firstLineColor"
+  ></app-passwd-indicator-line>
+<app-passwd-indicator-line 
+  id="passwd-indicator-line2" 
+  [class]="secondLineColor"
+  ></app-passwd-indicator-line>
+<app-passwd-indicator-line 
+  id="passwd-indicator-line3" 
+  [class]="thirdLineColor"
+></app-passwd-indicator-line>
