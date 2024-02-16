@@ -1,11 +1,10 @@
 import { Component, Input, OnChanges, SimpleChanges  } from '@angular/core';
-import { PasswdIndicatorLineComponent } from '../passwd-indicator-line/passwd-indicator-line.component';
 import { EPasswordStrength } from '../epassword-strength';
 
 @Component({
   selector: 'app-passwd-indicator',
   standalone: true,
-  imports: [PasswdIndicatorLineComponent],
+  imports: [],
   templateUrl: './passwd-indicator.component.html',
   styleUrl: './passwd-indicator.component.scss'
 })

@@ -1,3 +1,88 @@
+:host {
+  --gray-400: oklch(70.9% 0.015 304.04);
+  --red-400: oklch(50% 0.612 56.071);
+  --yellow-400: oklch(90% 1 106.485);
+  --green-400: oklch(45% 0.612 142.876);
+  --green-600: oklch(40% 0.6 142.810);
+  --green-700: oklch(35% 0.6 142.810);
+
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1 {
+  font-size: 2.125rem;
+  color: var(--gray-900);
+  font-weight: 500;
+  line-height: 100%;
+  letter-spacing: -0.125rem;
+  margin: 0;
+}
+
+p {
+  margin: 0;
+  color: var(--gray-700);
+}
+
+main {
+  width: 100%;
+  min-height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  box-sizing: inherit;
+  position: relative;
+}
+
+
+.roboto-medium {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.roboto-bold {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  max-width: 700px;
+  margin-bottom: 3rem;
+}
+
+.content {
+  h1 {
+    color: var(--green-400);
+    text-align: center;
+    margin-top: 1.75rem;
+  }
+
+  p {
+    color: var(--green-700);
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+  }
+} 
+
+@media screen and (max-width: 650px) {
+  .content {
+    flex-direction: column;
+    width: max-content;
+    height: 100%;
+  }
+
+}
+
 .app-passwd-check-form {
   display: flex;
   justify-content: center
