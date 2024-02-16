@@ -1,12 +1,6 @@
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { EPasswordStrength } from '../../../../core/constants/epassword-strength';
-
-const colorsStylesClasses: {[key: string]: string} = {
-  gray: "bottom-border-gray",
-  red: "bottom-border-red",
-  yellow: "bottom-border-yellow",
-  green: "bottom-border-green" 
-}
+import { colorsStylesClasses } from './colorsStylesClasses'
 
 @Component({
   selector: 'app-passwd-indicator',
