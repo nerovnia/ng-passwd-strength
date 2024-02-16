@@ -1,5 +1,12 @@
-import { Component, Input, OnChanges, SimpleChanges  } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { EPasswordStrength } from '../../../../core/constants/epassword-strength';
+
+const colorsStylesClasses: {[key: string]: string} = {
+  gray: "bottom-border-gray",
+  red: "bottom-border-red",
+  yellow: "bottom-border-yellow",
+  green: "bottom-border-green" 
+}
 
 @Component({
   selector: 'app-passwd-indicator',
@@ -8,7 +15,7 @@ import { EPasswordStrength } from '../../../../core/constants/epassword-strength
   templateUrl: './passwd-indicator.component.html',
   styleUrl: './passwd-indicator.component.scss'
 })
-export class PasswdIndicatorComponent  implements OnChanges {
+export class PasswdIndicatorComponent implements OnChanges {
   @Input() checkStrengthProp = EPasswordStrength.Empty;
 
   firstLineColor: string;
@@ -16,34 +23,35 @@ export class PasswdIndicatorComponent  implements OnChanges {
   thirdLineColor: string;
 
   constructor() {
-      this.firstLineColor = "";
-      this.secondLineColor = "";
-      this.thirdLineColor = "";
-      this.setColors("bottom-border-gray", "bottom-border-gray", "bottom-border-gray");
+    this.firstLineColor = "";
+    this.secondLineColor = "";
+    this.thirdLineColor = "";
+    this.setColors('gray', 'gray', 'gray');
   }
 
   setColors(firstLineColor: string, secondLineColor: string, thirdLineColor: string) {
-    this.firstLineColor = "passwd-indicator-line-comp " + firstLineColor;
-    this.secondLineColor = "passwd-indicator-line-comp " + secondLineColor;
-    this.thirdLineColor = "passwd-indicator-line-comp " + thirdLineColor;
-}
+    this.firstLineColor = "passwd-indicator-line-comp " + colorsStylesClasses[firstLineColor];
+    this.secondLineColor = "passwd-indicator-line-comp " + colorsStylesClasses[secondLineColor];
+    this.thirdLineColor = "passwd-indicator-line-comp " + colorsStylesClasses[thirdLineColor];
+  }
 
   ngOnChanges(changes: SimpleChanges) {
-    if(changes['checkStrengthProp']) {
-      if(changes['checkStrengthProp'].currentValue === EPasswordStrength.Empty) {
-        this.setColors("bottom-border-gray", "bottom-border-gray", "bottom-border-gray");
+    if (changes['checkStrengthProp']) {
+      const strengthProperty = changes['checkStrengthProp'].currentValue;
+      if (strengthProperty === EPasswordStrength.Empty) {
+        this.setColors('gray', 'gray', 'gray');
       }
-      if(changes['checkStrengthProp'].currentValue === EPasswordStrength.Less) {
-        this.setColors("bottom-border-red", "bottom-border-red", "bottom-border-red");
+      if (strengthProperty === EPasswordStrength.Less) {
+        this.setColors('red', 'red', 'red');
       }
-      if(changes['checkStrengthProp'].currentValue === EPasswordStrength.Easy) {
-        this.setColors("bottom-border-red", "bottom-border-gray", "bottom-border-gray");
+      if (strengthProperty === EPasswordStrength.Easy) {
+        this.setColors('red', 'gray', 'gray');
       }
-      if(changes['checkStrengthProp'].currentValue === EPasswordStrength.Medium) {
-        this.setColors("bottom-border-yellow", "bottom-border-yellow", "bottom-border-gray");
+      if (strengthProperty === EPasswordStrength.Medium) {
+        this.setColors('yellow', 'yellow', 'gray');
       }
-      if(changes['checkStrengthProp'].currentValue === EPasswordStrength.Strong) {
-        this.setColors("bottom-border-green", "bottom-border-green", "bottom-border-green");
+      if (strengthProperty === EPasswordStrength.Strong) {
+        this.setColors('green', 'green', 'green');
       }
     }
   }
