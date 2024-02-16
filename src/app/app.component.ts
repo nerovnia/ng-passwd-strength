@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
-import { PasswdFieldComponent } from './shared/components/passwd-field/passwd-field.component';
+import { PasswdFieldComponent } from './shared/components/passwd/passwd-field/passwd-field.component';
 @Component({
   selector: 'app-root',
   standalone: true,

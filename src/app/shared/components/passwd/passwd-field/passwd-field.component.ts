@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { PasswdIndicatorComponent } from '../passwd-indicator/passwd-indicator.component';
-import { EPasswordStrength } from '../../../epassword-strength';
+import { EPasswordStrength } from '../../../../epassword-strength';
 
 @Component({
   selector: 'app-passwd-field',
