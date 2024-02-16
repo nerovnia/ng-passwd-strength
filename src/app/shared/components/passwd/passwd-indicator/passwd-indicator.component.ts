@@ -12,17 +12,12 @@ import { colorsStylesClasses } from './colorsStylesClasses'
 export class PasswdIndicatorComponent implements OnChanges {
   @Input() checkStrengthProp = EPasswordStrength.Empty;
 
-  firstLineColor: string;
-  secondLineColor: string;
-  thirdLineColor: string;
+  linesColors: string[];
 
   constructor() {
     const initLineClasses = "passwd-indicator-line-comp";
-
-    this.firstLineColor = initLineClasses;
-    this.secondLineColor = initLineClasses;
-    this.thirdLineColor = initLineClasses;
-    this.setColors('gray', 'gray', 'gray');
+    this.linesColors = [initLineClasses, initLineClasses, initLineClasses];
+    this.setColors(['gray', 'gray', 'gray']);
   }
 
   private clearColorStyleClass(styleClasses: string) {
@@ -33,29 +28,29 @@ export class PasswdIndicatorComponent implements OnChanges {
     return result;
   }
 
-  setColors(firstLineColor: string, secondLineColor: string, thirdLineColor: string) {
-    this.firstLineColor = this.clearColorStyleClass(this.firstLineColor) + ' ' + colorsStylesClasses[firstLineColor];
-    this.secondLineColor = this.clearColorStyleClass(this.secondLineColor) + ' ' +  colorsStylesClasses[secondLineColor];
-    this.thirdLineColor = this.clearColorStyleClass(this.thirdLineColor) + ' ' +  colorsStylesClasses[thirdLineColor];
+  setColors(colors: string[]) {
+    this.linesColors = this.linesColors.map((lc, index) => {
+      return `${this.clearColorStyleClass(lc)} ${colorsStylesClasses[colors[index]]}`;
+    });
   }
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes['checkStrengthProp']) {
       const strengthProperty = changes['checkStrengthProp'].currentValue;
       if (strengthProperty === EPasswordStrength.Empty) {
-        this.setColors('gray', 'gray', 'gray');
+        this.setColors(['gray', 'gray', 'gray']);
       }
       if (strengthProperty === EPasswordStrength.Less) {
-        this.setColors('red', 'red', 'red');
+        this.setColors(['red', 'red', 'red']);
       }
       if (strengthProperty === EPasswordStrength.Easy) {
-        this.setColors('red', 'gray', 'gray');
+        this.setColors(['red', 'gray', 'gray']);
       }
       if (strengthProperty === EPasswordStrength.Medium) {
-        this.setColors('yellow', 'yellow', 'gray');
+        this.setColors(['yellow', 'yellow', 'gray']);
       }
       if (strengthProperty === EPasswordStrength.Strong) {
-        this.setColors('green', 'green', 'green');
+        this.setColors(['green', 'green', 'green']);
       }
     }
   }
