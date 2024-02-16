@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
-import { PasswdCheckFormComponent } from './passwd-check-form/passwd-check-form.component';
+import { PasswdCheckFormComponent } from './shared/components/passwd-check-form/passwd-check-form.component';
 @Component({
   selector: 'app-root',
   standalone: true,
