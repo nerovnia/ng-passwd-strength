@@ -17,16 +17,26 @@ export class PasswdIndicatorComponent implements OnChanges {
   thirdLineColor: string;
 
   constructor() {
-    this.firstLineColor = "";
-    this.secondLineColor = "";
-    this.thirdLineColor = "";
+    const initLineClasses = "passwd-indicator-line-comp";
+
+    this.firstLineColor = initLineClasses;
+    this.secondLineColor = initLineClasses;
+    this.thirdLineColor = initLineClasses;
     this.setColors('gray', 'gray', 'gray');
   }
 
+  private clearColorStyleClass(styleClasses: string) {
+    let result = styleClasses;
+    for (const property in colorsStylesClasses) {
+      result = result.replaceAll(colorsStylesClasses[property], '');
+    }
+    return result;
+  }
+
   setColors(firstLineColor: string, secondLineColor: string, thirdLineColor: string) {
-    this.firstLineColor = "passwd-indicator-line-comp " + colorsStylesClasses[firstLineColor];
-    this.secondLineColor = "passwd-indicator-line-comp " + colorsStylesClasses[secondLineColor];
-    this.thirdLineColor = "passwd-indicator-line-comp " + colorsStylesClasses[thirdLineColor];
+    this.firstLineColor = this.clearColorStyleClass(this.firstLineColor) + ' ' + colorsStylesClasses[firstLineColor];
+    this.secondLineColor = this.clearColorStyleClass(this.secondLineColor) + ' ' +  colorsStylesClasses[secondLineColor];
+    this.thirdLineColor = this.clearColorStyleClass(this.thirdLineColor) + ' ' +  colorsStylesClasses[thirdLineColor];
   }
 
   ngOnChanges(changes: SimpleChanges) {
