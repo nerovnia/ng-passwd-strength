@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
-import { PasswdCheckFormComponent } from './shared/components/passwd-check-form/passwd-check-form.component';
+import { PasswdFieldComponent } from './shared/components/passwd-field/passwd-field.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, PasswdCheckFormComponent],
+  imports: [RouterOutlet, PasswdFieldComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
