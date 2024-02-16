@@ -1,5 +1,5 @@
 import { Component, Input, OnChanges, SimpleChanges  } from '@angular/core';
-import { EPasswordStrength } from '../../../../epassword-strength';
+import { EPasswordStrength } from '../../../../core/constants/epassword-strength';
 
 @Component({
   selector: 'app-passwd-indicator',

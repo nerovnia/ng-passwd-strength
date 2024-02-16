@@ -14,16 +14,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have the 'USENSE-Angular-Task' title`, () => {
+  it(`should have the 'Password Strength Checker' title`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('USENSE-Angular-Task');
+    expect(app.title).toEqual('Password Strength Checker');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, USENSE-Angular-Task');
+    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, Password Strength Checker');
   });
 });
