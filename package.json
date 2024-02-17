@@ -1,6 +1,6 @@
 {
-  "name": "usense-angular-task",
-  "version": "0.0.0",
+  "name": "ng-passwd-strength",
+  "version": "0.0.1",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
