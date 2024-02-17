@@ -1,6 +1,7 @@
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { EPasswordStrength } from '../../../../core/constants/epassword-strength';
 import { colorsStylesClasses } from './colorsStylesClasses'
+import { statusIndicatorsColors } from './statusIndicatorsColors'
 
 @Component({
   selector: 'app-passwd-indicator',
@@ -17,7 +18,7 @@ export class PasswdIndicatorComponent implements OnChanges {
   constructor() {
     const initLineClasses = "passwd-indicator-line-comp";
     this.linesColors = [initLineClasses, initLineClasses, initLineClasses];
-    this.setColors(['gray', 'gray', 'gray']);
+    this.setColors(statusIndicatorsColors[0]);
   }
 
   private clearColorStyleClass(styleClasses: string) {
@@ -36,22 +37,7 @@ export class PasswdIndicatorComponent implements OnChanges {
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes['checkStrengthProp']) {
-      const strengthProperty = changes['checkStrengthProp'].currentValue;
-      if (strengthProperty === EPasswordStrength.Empty) {
-        this.setColors(['gray', 'gray', 'gray']);
-      }
-      if (strengthProperty === EPasswordStrength.Less) {
-        this.setColors(['red', 'red', 'red']);
-      }
-      if (strengthProperty === EPasswordStrength.Easy) {
-        this.setColors(['red', 'gray', 'gray']);
-      }
-      if (strengthProperty === EPasswordStrength.Medium) {
-        this.setColors(['yellow', 'yellow', 'gray']);
-      }
-      if (strengthProperty === EPasswordStrength.Strong) {
-        this.setColors(['green', 'green', 'green']);
-      }
+      this.setColors(statusIndicatorsColors[changes['checkStrengthProp'].currentValue]);
     }
   }
 }
