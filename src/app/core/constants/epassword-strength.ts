@@ -1,5 +1,5 @@
 export enum EPasswordStrength {
-  Empty = 1,
+  Empty = 0,
   Less,
   Easy,
   Medium,
